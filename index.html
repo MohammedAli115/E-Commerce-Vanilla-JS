@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini E-Commerce Vanilla JS</title>
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/tailwind.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-[#EFF2F1]">
+    <!--ADDED CART NOTE-->
+    <div class="add-cart-note duration-300 hidden bg-black text-white w-fit p-2 text-center fixed bottom-5 left-5">
+        <p>Product added to cart successfully !</p>
+        <i class="fa-solid fa-check text-3xl mt-3"></i>
+    </div>
+    <!-- START HOME PAGE  -->
+    <div class="home-page bg-[#3B5D50]">
+        <header class="container mx-auto sm:px-0 px-6">
+            <nav aria-label="Global" class="flex max-w-7xl items-center justify-between py-6">
+                <!-- Logo -->
+                <div class="flex lg:flex-1">
+                    <a href="/" class="text-3xl font-bold">
+                        <h2 class="text-white">Furni.</h2>
+                    </a>
+                </div>
+                <!-- Logo -->
+                <div class="flex lg:hidden">
+                    <button type="button" command="show-modal" commandfor="mobile-menu"
+                        class="-m-2.5 inline-flex cursor-pointer items-center justify-center rounded-md p-2.5 text-white">
+                        <span class="sr-only">Open main menu</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                            aria-hidden="true" class="size-6">
+                            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <el-popover-group class="hidden lg:flex lg:gap-x-12">
+                    <a href="/"
+                        class="text-sm/6 font-semibold relative before-content-[''] before:absolute before:left-0 before:h-1.5 before:top-6 before:w-full hover:before:w-full before:duration-300 before:bg-yellow-500  text-white">Home</a>
+                    <a href="#"
+                        class="text-sm/6 font-semibold relative before-content-[''] before:absolute before:left-0 before:h-1.5 before:top-6 before:w-0 hover:before:w-full before:duration-300 before:bg-yellow-500  text-slate-400 hover:text-white duration-300">Shop</a>
+                    <a href="#"
+                        class="text-sm/6 font-semibold relative before-content-[''] before:absolute before:left-0 before:h-1.5 before:top-6 before:w-0 hover:before:w-full before:duration-300 before:bg-yellow-500  text-slate-400 hover:text-white duration-300">About
+                        Us</a>
+                    <a href="#"
+                        class="text-sm/6 font-semibold relative before-content-[''] before:absolute before:left-0 before:h-1.5 before:top-6 before:w-0 hover:before:w-full before:duration-300 before:bg-yellow-500  text-slate-400 hover:text-white duration-300">Services</a>
+                    <a href="#"
+                        class="text-sm/6 font-semibold relative before-content-[''] before:absolute before:left-0 before:h-1.5 before:top-6 before:w-0 hover:before:w-full before:duration-300 before:bg-yellow-500  text-slate-400 hover:text-white duration-300">Contact
+                        Us</a>
+                </el-popover-group>
+                <!-- Icons -->
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <i class="fa-regular fa-user text-white cursor-pointer me-3 text-2xl"></i>
+                    <a href="./cart.html" class="relative"><i
+                            class="fa-solid fa-cart-plus text-white mx-3 text-2xl"></i>
+                        <span class="cart-length absolute -top-5 left-5 text-blue-100 text-1xl">2</span></a>
+                    <i class="fa-regular fa-heart text-white cursor-pointer text-2xl"></i>
+                </div>
+            </nav>
+            <el-dialog>
+                <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden ">
+                    <div tabindex="0" class="fixed inset-0 focus:outline-none">
+                        <el-dialog-panel
+                            class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#3B5D50] p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
+                            <div class="flex items-center justify-between">
+                                <!-- Logo -->
+                                <div class="flex lg:flex-1">
+                                    <a href="#" class="text-3xl font-bold">
+                                        <h2 class="text-white">Furni.</h2>
+                                    </a>
+                                </div>
+                                <!-- Logo -->
+                                <button type="button" command="close" commandfor="mobile-menu"
+                                    class="-m-2.5 rounded-md p-2.5 cursor-pointer text-white">
+                                    <span class="sr-only">Close menu</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        data-slot="icon" aria-hidden="true" class="size-6">
+                                        <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="mt-6 flow-root">
+                                <div class="-my-6 divide-y divide-white/10">
+                                    <div class="space-y-2 py-6">
+                                        <a href="#"
+                                            class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Home</a>
+                                        <a href="#"
+                                            class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Shop</a>
+                                        <a href="#"
+                                            class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">About
+                                            us</a>
+                                        <a href="#"
+                                            class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Services</a>
+                                        <a href="#"
+                                            class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Contact
+                                            Us</a>
+                                    </div>
+                                    <div class="py-6">
+                                        <!-- Icons -->
+                                        <div class="flex lg:hidden">
+                                            <i class="fa-regular fa-user text-white cursor-pointer me-2"></i>
+                                            <i class="fa-solid fa-cart-plus text-white cursor-pointer mx-2"></i>
+                                            <i class="fa-regular fa-heart text-white cursor-pointer mx-2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </el-dialog-panel>
+                    </div>
+                </dialog>
+            </el-dialog>
+        </header>
+        <!-- Content -->
+        <div
+            class="hero container sm:px-0 px-6 mx-auto duration-1000 py-20 grid lg:grid-cols-2 items-center text-white">
+            <div class="content">
+                <h1 class="sm:text-5xl text-4xl font-bold mb-8">Modern Interior Design Studio</h1>
+                <p class="text-slate-400 text-base/10">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
+                    velit. Aliquam vulputate velit
+                    imperdiet dolor tempor
+                    tristique.</p>
+                <div class="buttons mt-4">
+                    <button
+                        class="text-black bg-amber-400 duration-300 hover:bg-amber-300 cursor-pointer me-4 px-8 py-4 rounded-4xl">
+                        Shop Now
+                    </button>
+                    <button
+                        class="border border-amber-50 duration-300 hover:border-amber-1000 cursor-pointer px-9 py-4 rounded-4xl">
+                        Explore
+                    </button>
+                </div>
+            </div>
+            <div class="img">
+                <img class="sm:mt-0 mt-11" src="./assets/images/couch.png" alt="hero img">
+            </div>
+        </div>
+
+    </div>
+    <!-- END HOME PAGE  -->
+
+    <!-- START SOME PRODUCTS => SECOND SECTION -->
+    <div class="some-products my-20">
+        <div class="container sm:px-0 px-6 mx-auto grid grid-cols-12 items-start lg:items-center">
+            <div class="content col-span-12 md:col-span-4 mb-20 md:mb-0">
+                <h3 class="text-3xl">Crafted with excellent material.</h3>
+                <p class="my-6 text-sm/8 text-slate-600">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
+                    velit. Aliquam vulputate velit
+                    imperdiet dolor tempor
+                    tristique.</p>
+                <button class=" text-white bg-black duration-300 cursor-pointer px-9 py-4 rounded-4xl">
+                    Explore
+                </button>
+            </div>
+
+            <div class="products grid col-span-12 md:col-span-8 lg:grid-cols-3 grid-cols-2">
+
+            </div>
+        </div>
+    </div>
+    <!-- END SOME PRODUCTS => SECOND SECTION -->
+
+    <!-- START Choose Us SECTION -->
+    <div class="choose container mx-auto grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4 items-center my-30">
+        <div class="content">
+            <div class="head">
+                <h2 class="text-3xl font-medium tracking-wider">Why Choose Us</h2>
+                <p class="text-slate-600 my-5">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
+                    Aliquam vulputate velit
+                    imperdiet
+                    dolor tempor
+                    tristique.</p>
+            </div>
+
+            <div class="text grid md:grid-cols-2 grid-cols-1 gap-10">
+                <div class="">
+                    <i class="fa-solid fa-truck"></i>
+                    <h5>Fast & Free Shipping</h5>
+                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                </div>
+                <div class="">
+                    <i class="fa-solid fa-truck"></i>
+                    <h5>Fast & Free Shipping</h5>
+                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                </div>
+                <div class="">
+                    <i class="fa-solid fa-truck"></i>
+                    <h5>Fast & Free Shipping</h5>
+                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                </div>
+                <div class="">
+                    <i class="fa-solid fa-truck"></i>
+                    <h5>Fast & Free Shipping</h5>
+                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                </div>
+            </div>
+        </div>
+        <div class="img">
+            <img class="rounded-2xl" src="./assets/images/why-choose-us-img.jpg" alt="why-choose-us-img">
+        </div>
+    </div>
+    <!-- END Choose Us SECTION -->
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
