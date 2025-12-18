@@ -1,21 +1,13 @@
-
-
 async function showCartData() {
   let cartContain = document.querySelector(".cart-contain");
 
   const cart = JSON.parse(localStorage.getItem("cart"));
   if (cart.length === 0) {
-    document.querySelector(".empty-cart").innerHTML += `
-        <div class="text-center mt-20">
-            <p class="text-6xl font-semibold">Cart Is Empty</p>
-            <button
-                class="text-black mt-7 bg-amber-400 duration-300 hover:bg-amber-300 cursor-pointer me-4 px-8 py-4 rounded-4xl">
-                Shop Now
-            </button>
-        </div>
-    `;
+    document.querySelector("#removeAllItemsFromCart").classList.add("hidden");
     cartContain.innerHTML = "";
     return;
+  } else {
+    document.querySelector(".empty-cart").classList.add("hidden");
   }
 
   for (let i = 0; i < cart.length; i++) {
@@ -30,10 +22,10 @@ async function showCartData() {
             <tbody>
                 <tr class="text-center">
                     <td><img class="h-15 md:h-30 w-20" src="${
-                      data.images
+                      data.thumbnail
                     }" alt="${data.title}"></td>
                     <td class="truncate">${data.title}</td>
-                    <td class="hidden md:block items-center md:mt-11">${
+                    <td class="hidden md:block items-center md:mt-13">${
                       data.price
                     } $</td>
                     <td> 
@@ -61,7 +53,7 @@ async function showCartData() {
 
 showCartData();
 
-function removeFromCart() {
+function removeItemFromCart() {
   const cart = JSON.parse(localStorage.getItem("cart"));
   document.querySelector(".cart-contain").addEventListener("click", (e) => {
     if (e.target.classList.contains("removeFromCart")) {
@@ -75,16 +67,20 @@ function removeFromCart() {
     }
   });
 }
-removeFromCart();
+removeItemFromCart();
 
-function shoNoteRemovedFromCart() {
-  const noteCart = document.querySelector(".removed-note-cart");
-  noteCart.classList.remove("hidden");
-  console.log(noteCart);
-  setTimeout(() => {
-    noteCart.classList.add("hidden");
-  }, 2000);
+function removeAllItemFromCart() {
+  document
+    .querySelector("#removeAllItemsFromCart")
+    .addEventListener("click", () => {
+      const newCart = [];
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      window.location.reload();
+    });
 }
+
+removeAllItemFromCart();
+
 
 const updateQty = () => {
   document.querySelector(".cart-contain").addEventListener("click", (e) => {
@@ -125,3 +121,13 @@ const updateQty = () => {
   });
 };
 updateQty();
+
+
+function shoNoteRemovedFromCart() {
+  const noteCart = document.querySelector(".removed-note-cart");
+  noteCart.classList.remove("hidden");
+  console.log(noteCart);
+  setTimeout(() => {
+    noteCart.classList.add("hidden");
+  }, 2000);
+}

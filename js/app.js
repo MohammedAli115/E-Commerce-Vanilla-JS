@@ -7,7 +7,7 @@ handleCartCount();
 
 async function fetchProducts() {
   let url = "https://dummyjson.com/products";
-  let containProducts = document.querySelector(".some-products .products ");
+  let containProducts = document.querySelector(".some-products .products");
 
   try {
     const response = await fetch(url);
