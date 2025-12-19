@@ -1,7 +1,13 @@
 async function showCartData() {
   let cartContain = document.querySelector(".cart-contain");
+  let cartTotal = document.querySelector("#total");
+  let subtotal = document.querySelector("#subtotal");
 
+  cartTotal.innerHTML = "0 $";
+  subtotal.innerHTML = "0 $";
   const cart = JSON.parse(localStorage.getItem("cart"));
+  let count = 0;
+  qtyyy = 0
   if (cart.length === 0) {
     document.querySelector("#removeAllItemsFromCart").classList.add("hidden");
     cartContain.innerHTML = "";
@@ -11,12 +17,21 @@ async function showCartData() {
   }
 
   for (let i = 0; i < cart.length; i++) {
-    const qty = cart[i].qty;
+    let qty = cart[i].qty;
     const product_id = cart[i].id;
     const url = `https://dummyjson.com/products/${product_id}`;
     try {
       const response = await fetch(url);
       const data = await response.json();
+
+      count += data.price;
+      qtyyy += qty 
+      total = Number(+count * +qty);
+      console.log(12.99 * 12.99);
+      
+      
+
+
       if (response.ok) {
         cartContain.innerHTML += `
             <tbody>
@@ -49,6 +64,8 @@ async function showCartData() {
       console.log(err);
     }
   }
+        cartTotal.innerHTML = `${Number(total).toFixed(2)} $`;
+        subtotal.innerHTML = `${Number(total).toFixed(2)} $`;
 }
 
 showCartData();
@@ -80,7 +97,6 @@ function removeAllItemFromCart() {
 }
 
 removeAllItemFromCart();
-
 
 const updateQty = () => {
   document.querySelector(".cart-contain").addEventListener("click", (e) => {
@@ -121,7 +137,6 @@ const updateQty = () => {
   });
 };
 updateQty();
-
 
 function shoNoteRemovedFromCart() {
   const noteCart = document.querySelector(".removed-note-cart");

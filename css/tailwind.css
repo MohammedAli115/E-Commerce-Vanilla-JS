@@ -2,4 +2,5 @@
 @import "tailwindcss";
 body {
     font-family: "Inter", sans-serif !important;
+    scroll-behavior: smooth;
 }

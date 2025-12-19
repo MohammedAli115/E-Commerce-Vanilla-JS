@@ -156,6 +156,37 @@
             id="removeAllItemsFromCart">Remove All Cart <i
                 class="fa-solid fa-ban ms-3 items-center text-red-700"></i></button>
     </div>
+    <!-- COUPON AND CART TOTALS -->
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 my-10 gap-20 px-8 md:px-0">
+        <div class="coupon items-center">
+            <div class="w-fit">
+                <h3 class="text-3xl font-medium mb-5">Coupon</h3>
+                <p class="text-slate-600">Enter your coupon code if you have one.</p>
+                <input class="mt-5 border w-full p-3 rounded-2xl bg-white" type="text" placeholder="Coupon Code">
+            </div>
+            <div>
+                <button class="bg-gray-900 text-white cursor-pointer p-3 hover:bg-gray-800 duration-300 mt-5 px-20">
+                    Apply Coupon
+                </button>
+            </div>
+        </div>
+        <div class="cart-total w-fit">
+            <h3 class="text-3xl font-medium mb-5">Cart Totals</h3>
+            <div class="flex justify-between my-5">
+                <p>Subtotal</p>
+                <span id="subtotal">0 $</span>
+            </div>
+            <div class="flex justify-between my-3">
+                <p>Total</p>
+                <span id="total">0 $</span>
+            </div>
+            <div>
+                <button class="bg-gray-900 text-white cursor-pointer p-3 hover:bg-gray-800 duration-300 mt-5 px-20">
+                    Proceed To Checkout
+                </button>
+            </div>
+        </div>
+    </div>
     <script src="./js/app.js"></script>
     <script src="./js/cart.js"></script>
 </body>

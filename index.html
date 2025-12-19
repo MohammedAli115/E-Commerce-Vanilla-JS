@@ -22,7 +22,7 @@
             <nav aria-label="Global" class="flex max-w-7xl items-center justify-between py-6">
                 <!-- Logo -->
                 <div class="flex lg:flex-1">
-                    <a href="/" class="text-3xl font-bold">
+                    <a href="./index.html" class="text-3xl font-bold">
                         <h2 class="text-white">Furni.</h2>
                     </a>
                 </div>
@@ -39,7 +39,7 @@
                     </button>
                 </div>
                 <el-popover-group class="hidden lg:flex lg:gap-x-12">
-                    <a href="/"
+                    <a href="/index.html"
                         class="text-sm/6 font-semibold relative before-content-[''] before:absolute before:left-0 before:h-1.5 before:top-6 before:w-full hover:before:w-full before:duration-300 before:bg-yellow-500  text-white">Home</a>
                     <a href="./products.html"
                         class="text-sm/6 font-semibold relative before-content-[''] before:absolute before:left-0 before:h-1.5 before:top-6 before:w-0 hover:before:w-full before:duration-300 before:bg-yellow-500  text-slate-400 hover:text-white duration-300">Shop</a>
@@ -103,7 +103,10 @@
                                         <!-- Icons -->
                                         <div class="flex lg:hidden">
                                             <i class="fa-regular fa-user text-white cursor-pointer me-2"></i>
-                                            <i class="fa-solid fa-cart-plus text-white cursor-pointer mx-2"></i>
+                                            <a href="./cart.html" class="relative"><i
+                                                    class="fa-solid fa-cart-plus text-white mx-3"></i>
+                                                <span
+                                                    class="cart-length absolute -top-5 left-5 text-blue-100 text-1xl">2</span></a>
                                             <i class="fa-regular fa-heart text-white cursor-pointer mx-2"></i>
                                         </div>
                                     </div>
@@ -124,10 +127,10 @@
                     imperdiet dolor tempor
                     tristique.</p>
                 <div class="buttons mt-4">
-                    <button
+                    <a href="./products.html"
                         class="text-black bg-amber-400 duration-300 hover:bg-amber-300 cursor-pointer me-4 px-8 py-4 rounded-4xl">
                         Shop Now
-                    </button>
+                    </a>
                     <button
                         class="border border-amber-50 duration-300 hover:border-amber-1000 cursor-pointer px-9 py-4 rounded-4xl">
                         Explore
@@ -143,7 +146,7 @@
     <!-- END HOME PAGE  -->
 
     <!-- START SOME PRODUCTS => SECOND SECTION -->
-    <div class="some-products my-20">
+    <div class="some-products mt-30">
         <div class="container sm:px-0 px-6 mx-auto grid grid-cols-12 items-start lg:items-center">
             <div class="content col-span-12 md:col-span-4 mb-20 md:mb-0">
                 <h3 class="text-3xl">Crafted with excellent material.</h3>
@@ -151,9 +154,10 @@
                     velit. Aliquam vulputate velit
                     imperdiet dolor tempor
                     tristique.</p>
-                <button class=" text-white bg-black duration-300 cursor-pointer px-9 py-4 rounded-4xl">
+                <a href="./products.html"
+                    class=" text-white bg-black duration-300 cursor-pointer px-9 py-4 rounded-4xl">
                     Explore
-                </button>
+                </a>
             </div>
 
 
@@ -165,47 +169,62 @@
     <!-- END SOME PRODUCTS => SECOND SECTION -->
 
     <!-- START Choose Us SECTION -->
-    <div class="choose container mx-auto grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4 items-center my-30">
-        <div class="content">
-            <div class="head">
+    <div class="choose container mx-auto lg:flex lg:items-center lg:gap-10 my-50 px-6 group">
+
+        <div class="content lg:w-8/12">
+            <div class="head mb-20">
                 <h2 class="text-3xl font-medium tracking-wider">Why Choose Us</h2>
-                <p class="text-slate-600 my-5">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
-                    Aliquam vulputate velit
-                    imperdiet
-                    dolor tempor
-                    tristique.</p>
+                <p class="text-slate-600 my-5">
+                    Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
+                    Aliquam vulputate velit imperdiet dolor tempor tristique.
+                </p>
             </div>
 
-            <div class="text grid md:grid-cols-2 grid-cols-1 gap-10">
-                <div class="">
-                    <i class="fa-solid fa-truck"></i>
-                    <h5>Fast & Free Shipping</h5>
-                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+            <div class="features grid md:grid-cols-2 grid-cols-1 gap-10">
+                <div>
+                    <i class="fa-solid fa-truck text-3xl text-[#3B5D50]"></i>
+                    <h5 class="mt-2 font-semibold">Fast & Free Shipping</h5>
+                    <p class="mt-1 text-gray-600">
+                        Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.
+                    </p>
                 </div>
-                <div class="">
-                    <i class="fa-solid fa-truck"></i>
-                    <h5>Fast & Free Shipping</h5>
-                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                <div>
+                    <i class="fa-solid fa-calendar-check text-3xl text-[#3B5D50]"></i>
+                    <h5 class="mt-2 font-semibold">Easy to Shop</h5>
+                    <p class="mt-1 text-gray-600">
+                        Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.
+                    </p>
                 </div>
-                <div class="">
-                    <i class="fa-solid fa-truck"></i>
-                    <h5>Fast & Free Shipping</h5>
-                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                <div>
+                    <i class="fa-solid fa-life-ring text-3xl text-[#3B5D50]"></i>
+                    <h5 class="mt-2 font-semibold">24/7 Support</h5>
+                    <p class="mt-1 text-gray-600">
+                        Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.
+                    </p>
                 </div>
-                <div class="">
-                    <i class="fa-solid fa-truck"></i>
-                    <h5>Fast & Free Shipping</h5>
-                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+                <div>
+                    <i class="fa-solid fa-right-left text-3xl text-[#3B5D50]"></i>
+                    <h5 class="mt-2 font-semibold">Hassle Free Returns</h5>
+                    <p class="mt-1 text-gray-600">
+                        Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="img">
-            <img class="rounded-2xl" src="./assets/images/why-choose-us-img.jpg" alt="why-choose-us-img">
+
+        <div class="img lg:w-6/12 mt-10 lg:mt-0 flex">
+            <img class="rounded-2xl w-full md:h-130 group-hover:rotate-5 delay-350 duration-300 group-hover:scale-91"
+                src="./assets/images/why-choose-us-img.jpg" alt="why-choose-us-img">
         </div>
+
     </div>
     <!-- END Choose Us SECTION -->
-     <!-- START FOOTER -->
-     <!-- END FOOTER -->
+
+
+
+    <!-- START FOOTER -->
+    <footer></footer>
+    <!-- END FOOTER -->
     <script src="./js/app.js"></script>
     <script src="./js/products.js"></script>
 </body>

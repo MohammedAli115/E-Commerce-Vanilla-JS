@@ -1,14 +1,25 @@
-async function fetchProducts(search = "") {
+const handleCartCount = () => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalQty = cart.reduce((acc, cur) => acc + cur.qty, 0);
+  document.querySelector(".cart-length").textContent = totalQty;
+};
+handleCartCount();
+
+async function fetchProducts() {
+
+
   let productsContain = document.querySelector(".products-contain");
 
   productsContain.innerHTML = "";
 
   try {
     const response = await fetch(
-      `https://dummyjson.com/products/search?q=${search}&limit=50&sortBy=&order=`
+      `https://dummyjson.com/products/search?q=&skip=&limit=20&sortBy=&order=`
     );
     const data = await response.json();
     if (response.ok) {
+      console.log(data);
+
       data.products.map((product) => {
         productsContain.innerHTML += `
             <div class="product group bg-whit bg-violet-100 m-4 rounded-2xl cursor-pointer transition-all duration-300 p-3 ">
@@ -65,12 +76,13 @@ function addToCart() {
 
       if (existing) {
         existing.qty++;
+        handleCartCount();
       } else {
-        shoNoteAddedToCart();
         cart.push({
           id: product_id,
           qty,
         });
+        shoNoteAddedToCart();
       }
       handleCartCount();
     }

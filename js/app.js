@@ -1,7 +1,7 @@
 const handleCartCount = () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const totalQty = cart.reduce((acc, cur) => acc + cur.qty, 0);
-  document.querySelector(".cart-length").textContent = totalQty;
+  document.querySelectorAll(".cart-length").textContent = totalQty;
 };
 handleCartCount();
 
@@ -14,7 +14,7 @@ async function fetchProducts() {
 
     if (response.ok) {
       const data = await response.json();
-      data.products.slice(0, 3).map((product) => {
+      data.products.slice(8, 11).map((product) => {
         containProducts.innerHTML += `
                 <div class="product shadow-2xl text-center group gap-3 px-2 cursor-pointer bg-slate-100 hover:bg-slate-200 duration-300 m-2 rounded-2xl">
                     <img class="group-hover:scale-[1.1] duration-300"  src=${product.thumbnail} alt=${product.description} />
